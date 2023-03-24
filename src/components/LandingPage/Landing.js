@@ -11,8 +11,9 @@ const Landing = () => {
         axios
             .get(`http://localhost:3333/api/getSong`)
             .then((res) => {
-                setSong(res.data);
-                console.log(res.data);
+                setSong(res.data[0]);
+                console.log(res.data[0]);
+                console.log(res.data[0].name)
             });
     };
 
@@ -82,6 +83,14 @@ const Landing = () => {
 
                 <input type="submit" value="Submit" />
              </form>
+        </div>
+
+        <div>
+            <p>
+            Here is your song: {song.name} 
+            <br></br>
+            From the album: {song.album}
+            </p>
         </div>
     </div>
   )
