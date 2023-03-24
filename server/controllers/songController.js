@@ -15,8 +15,10 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
 
 
   const getSong = (req, res) => {
-    sequelize.query(`SELECT * 
-    FROM songs`)
+    sequelize.query(`SELECT song_id, name, album 
+    FROM songs 
+    ORDER BY RANDOM()
+    Limit 1`)
     .then(([data]) => {
         res.status(200).send(data)
     })
